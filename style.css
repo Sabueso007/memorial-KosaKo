@@ -163,16 +163,14 @@ p {
     box-shadow: 0 5px 15px rgba(0,0,0,0.12);
 }
 
-/* === MODIFICACIÓN CLAVE AQUÍ (Alternativa) === */
 /* Estilo para las imágenes DENTRO de la galería */
 .foto-galeria img {
     width: 100%;       /* La imagen intenta ocupar todo el ancho de su celda */
     height: 180px;      /* MANTIENE LA ALTURA FIJA DEL CONTENEDOR (¡Ajusta!) */
-    object-fit: contain;/* CAMBIO: Muestra la imagen completa dentro del espacio, sin recortar */
+    object-fit: contain;/* Muestra la imagen completa dentro del espacio, sin recortar */
     display: block;    /* Importante para quitar espacio extra */
     /* background-color: #f0f0f0; /* Opcional: color de fondo si la imagen no llena el espacio */
 }
-/* ======================================== */
 
 .foto-galeria p {
     padding: 10px;

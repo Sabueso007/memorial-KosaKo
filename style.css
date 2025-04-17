@@ -178,13 +178,16 @@ p {
     box-shadow: 0 5px 15px rgba(0,0,0,0.12);
 }
 
+/* === MODIFICACIÓN CLAVE AQUÍ === */
 /* Estilo para las imágenes DENTRO de la galería */
 .foto-galeria img {
-    width: 100%; /* La imagen ocupa todo el ancho de su celda en el grid */
-    height: auto; /* Mantiene la proporción */
-    display: block; /* Importante para quitar espacio extra */
-    border-bottom: 1px solid #eee; /* Línea sutil entre imagen y texto */
+    width: 100%;       /* La imagen ocupa todo el ancho de su celda */
+    height: 180px;      /* FIJA LA ALTURA (¡Ajusta este valor si quieres!) */
+    object-fit: cover; /* Mantiene proporción y recorta para llenar */
+    display: block;    /* Importante para quitar espacio extra */
+    /* border-bottom: 1px solid #eee; /* Quitado o comentado, puede verse raro con object-fit */
 }
+/* ================================ */
 
 .foto-galeria p {
     padding: 10px; /* Espaciado para el texto de la foto */
@@ -229,6 +232,11 @@ footer {
         /* grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); */
         gap: 15px;
     }
+
+    /* Ajustar altura de imagen en galería para tablets */
+    .foto-galeria img {
+        height: 160px; /* Un poco más pequeña en tablets (opcional) */
+    }
 }
 
 /* Para Móviles */
@@ -246,7 +254,7 @@ footer {
     header h1 {
         font-size: 1.9em;
     }
-     header h2 {
+      header h2 {
         font-size: 1em;
     }
 
@@ -269,6 +277,11 @@ footer {
          /* O forzar 1 columna: */
          /* grid-template-columns: 1fr; */
          gap: 10px;
+    }
+
+    /* Ajustar altura de imagen en galería para móviles */
+    .foto-galeria img {
+        height: 140px; /* Aún más pequeña en móviles (opcional) */
     }
 
     .foto-galeria p {

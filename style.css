@@ -18,7 +18,6 @@ body {
 }
 
 /* === Contenedor Principal === */
-/* Aplicamos el ancho máximo y centrado directamente a 'main' */
 main {
     max-width: 900px; /* Ancho máximo del contenido */
     margin: 0 auto; /* Centrar el contenedor principal */
@@ -76,7 +75,6 @@ p {
     margin-bottom: 30px;
 }
 
-/* Estilo específico para la imagen principal por su ID */
 #foto-principal {
     max-width: 100%; /* Responsiva */
     height: auto;
@@ -89,113 +87,100 @@ p {
 
 /* === Sección Poema === */
 #poema-contenedor {
-    /* Puedes añadir un fondo de pergamino aquí si quieres */
-    /* background: url('images/pergamino.jpg') center center / cover no-repeat; */
     padding: 20px;
-    /* background-color: #fff9e6; */ /* Fondo crema suave si no usas imagen */
     border-radius: 5px;
     margin: 30px 0;
 }
 
 .poema-texto {
-    text-align: center; /* Centrar el texto del poema */
-    font-family: 'Georgia', Times, 'Times New Roman', serif; /* Fuente más clásica para poema */
+    text-align: center;
+    font-family: 'Georgia', Times, 'Times New Roman', serif;
     font-size: 1.1em;
     color: #333;
-    line-height: 1.8; /* Mayor interlineado para legibilidad */
+    line-height: 1.8;
 }
 
 .poema-texto p br {
-    /* Estilo para los saltos de línea si es necesario, aunque usualmente no se requiere */
     content: "";
     display: block;
-    margin-bottom: 0.5em; /* Espacio entre estrofas creadas con <br><br> */
+    margin-bottom: 0.5em;
 }
 
 
 /* === Sección Videos === */
-.videos-contenedor {
-    /* Contenedor general de videos */
-}
+.videos-contenedor { }
 
 .videos-contenedor h2 {
     margin-bottom: 30px;
 }
 
-/* Usamos la clase que SÍ está en el HTML */
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* Proporción 16:9 para el aspecto del video */
+    padding-bottom: 56.25%; /* 16:9 */
     height: 0;
     overflow: hidden;
-    max-width: 100%; /* Asegura que no se desborde */
-    background: #eee; /* Fondo gris claro mientras carga */
-    border-radius: 5px; /* Bordes redondeados */
-    margin-bottom: 30px; /* Espacio debajo de cada video */
+    max-width: 100%;
+    background: #eee;
+    border-radius: 5px;
+    margin-bottom: 30px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.video-wrapper p { /* Estilo para el título del video */
+.video-wrapper p {
     text-align: center;
     font-weight: bold;
     margin-bottom: 10px;
-    padding: 0 10px; /* Añadir padding por si el texto es largo */
-    /* Importante: El párrafo está FUERA del div que contiene el iframe, así que no afecta su layout */
+    padding: 0 10px;
 }
 
-/* Estilo para TODOS los iframes DENTRO de .video-wrapper */
 .video-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: 0; /* Quitar borde del iframe */
+    border: 0;
 }
 
 /* === Sección Galería de Fotos === */
-/* Usamos la clase del contenedor real en el HTML */
 .galeria-contenedor {
     display: grid;
-    /* Columnas responsivas: se ajustan automáticamente */
-    /* Mínimo 200px, máximo 1 fracción del espacio disponible */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px; /* Espacio entre las fotos */
+    gap: 20px;
 }
 
-/* Estilo para cada elemento de la galería */
 .foto-galeria {
-    text-align: center; /* Centrar texto debajo de la imagen */
-    background-color: #fff; /* Fondo por si acaso */
+    text-align: center;
+    background-color: #fff; /* El fondo que se verá si 'contain' deja espacio */
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-    overflow: hidden; /* Asegura que la imagen no se salga del borde redondeado */
+    overflow: hidden;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .foto-galeria:hover {
-    transform: translateY(-5px); /* Ligero efecto al pasar el ratón */
+    transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.12);
 }
 
-/* === MODIFICACIÓN CLAVE AQUÍ === */
+/* === MODIFICACIÓN CLAVE AQUÍ (Alternativa) === */
 /* Estilo para las imágenes DENTRO de la galería */
 .foto-galeria img {
-    width: 100%;       /* La imagen ocupa todo el ancho de su celda */
-    height: 180px;      /* FIJA LA ALTURA (¡Ajusta este valor si quieres!) */
-    object-fit: cover; /* Mantiene proporción y recorta para llenar */
+    width: 100%;       /* La imagen intenta ocupar todo el ancho de su celda */
+    height: 180px;      /* MANTIENE LA ALTURA FIJA DEL CONTENEDOR (¡Ajusta!) */
+    object-fit: contain;/* CAMBIO: Muestra la imagen completa dentro del espacio, sin recortar */
     display: block;    /* Importante para quitar espacio extra */
-    /* border-bottom: 1px solid #eee; /* Quitado o comentado, puede verse raro con object-fit */
+    /* background-color: #f0f0f0; /* Opcional: color de fondo si la imagen no llena el espacio */
 }
-/* ================================ */
+/* ======================================== */
 
 .foto-galeria p {
-    padding: 10px; /* Espaciado para el texto de la foto */
+    padding: 10px;
     font-size: 0.9em;
     color: #555;
-    margin-bottom: 0; /* Quitamos el margen inferior del párrafo aquí */
-    min-height: 3em; /* Asegura un espacio mínimo para el texto */
-    display: flex; /* Opcional: centrar verticalmente si el texto es corto */
+    margin-bottom: 0;
+    min-height: 3em;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -204,92 +189,40 @@ p {
 footer {
     text-align: center;
     margin-top: 50px;
-    padding: 20px 15px; /* Padding horizontal y vertical */
+    padding: 20px 15px;
     border-top: 1px solid #eee;
     font-size: 0.9em;
     color: #888;
 }
 
 /* === Ajustes Responsivos (Media Queries) === */
-
-/* Para Tablets y pantallas medianas */
 @media (max-width: 768px) {
-    main {
-        padding: 20px 20px; /* Menos padding lateral */
-    }
-
-    header h1 {
-        font-size: 2.2em; /* Título un poco más pequeño */
-    }
-
-    section h2 {
-        font-size: 1.6em; /* Títulos de sección más pequeños */
-    }
-
-    /* Ajustar la galería para que tenga menos columnas si es necesario */
-    .galeria-contenedor {
-        /* Podrías cambiar minmax si quieres menos columnas */
-        /* grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); */
-        gap: 15px;
-    }
-
-    /* Ajustar altura de imagen en galería para tablets */
+    main { padding: 20px 20px; }
+    header h1 { font-size: 2.2em; }
+    section h2 { font-size: 1.6em; }
+    .galeria-contenedor { gap: 15px; }
+    /* Ajustar altura de imagen en galería para tablets si se usa altura fija */
     .foto-galeria img {
-        height: 160px; /* Un poco más pequeña en tablets (opcional) */
+        height: 160px; /* Ajusta si es necesario */
     }
 }
 
-/* Para Móviles */
 @media (max-width: 480px) {
-    body {
-        padding: 10px 0; /* Menos padding arriba/abajo del body */
-    }
-
-    main {
-        padding: 15px 15px; /* Aún menos padding */
-        border-radius: 0; /* Opcional: quitar bordes en móvil para más espacio */
-        box-shadow: none; /* Opcional: quitar sombra */
-    }
-
-    header h1 {
-        font-size: 1.9em;
-    }
-      header h2 {
-        font-size: 1em;
-    }
-
-    section h2 {
-        font-size: 1.4em;
-    }
-
-    #foto-principal {
-         max-width: 95%; /* Permitir que la foto principal sea más ancha */
-    }
-
-    .poema-texto {
-        font-size: 1em;
-    }
-
-    /* Hacer que la galería sea de 1 o 2 columnas en móvil */
+    body { padding: 10px 0; }
+    main { padding: 15px 15px; border-radius: 0; box-shadow: none; }
+    header h1 { font-size: 1.9em; }
+    header h2 { font-size: 1em; }
+    section h2 { font-size: 1.4em; }
+    #foto-principal { max-width: 95%; }
+    .poema-texto { font-size: 1em; }
     .galeria-contenedor {
-         /* Forzar 2 columnas como máximo */
          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-         /* O forzar 1 columna: */
-         /* grid-template-columns: 1fr; */
          gap: 10px;
     }
-
-    /* Ajustar altura de imagen en galería para móviles */
+    /* Ajustar altura de imagen en galería para móviles si se usa altura fija */
     .foto-galeria img {
-        height: 140px; /* Aún más pequeña en móviles (opcional) */
+        height: 140px; /* Ajusta si es necesario */
     }
-
-    .foto-galeria p {
-        font-size: 0.85em;
-        min-height: 2.5em;
-    }
-
-    footer {
-        font-size: 0.8em;
-    }
+    .foto-galeria p { font-size: 0.85em; min-height: 2.5em; }
+    footer { font-size: 0.8em; }
 }
